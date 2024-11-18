@@ -9,9 +9,9 @@ export class ReviewsService {
 
   constructor(private readonly configService: ConfigService) {}
 
-  async getReviews(page: number) {
+  async getReviews(page: number, offset: number) {
     const res = await fetch(
-      `${UDEMY_BASE_URL}/taught-courses/reviews/?status=commented&star=4,5&page=${page}&page_size=9`,
+      `${UDEMY_BASE_URL}/taught-courses/reviews/?status=commented&star=4,5&page=${page}&page_size=${offset}`,
       {
         headers: {
           authorization: `Bearer ${this.secretToken}`,

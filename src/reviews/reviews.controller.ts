@@ -8,7 +8,10 @@ export class ReviewsController {
   constructor(private readonly reviewsService: ReviewsService) {}
 
   @Get()
-  async getReviews(@Query('page') page: number) {
-    return this.reviewsService.getReviews(page);
+  async getReviews(
+    @Query('page') page: number,
+    @Query('offset') offset: number,
+  ) {
+    return this.reviewsService.getReviews(page, offset);
   }
 }
